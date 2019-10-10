@@ -1,7 +1,8 @@
-# the final code
+#final file
 
 import os
 import csv
+
 
 c_csv = os.path.join("budget_data.csv")
 
@@ -18,18 +19,24 @@ with open(c_csv, newline="") as csvfile:
     MaxProfit = 0
     MinLoss = 0
     
+    MaxDate = "Jan-2010"
+    MinDate = "Jan-2010"
+    
+    
     for row in csvreader:
         
         NumMonths = NumMonths + 1
-        
+
         Amount = int(row[1])
         TotalProfitLoss = TotalProfitLoss + Amount
         
         if MaxProfit < Amount:
             MaxProfit = Amount
+            MaxDate = row[0]
         
-        if MinLoss < Amount:
-            MinProfit = row[1]
+        if MinLoss > Amount:
+            MinLoss = Amount
+            MinDate = row[0]
 
     
     AvgProfitLoss = TotalProfitLoss / NumMonths
@@ -43,11 +50,11 @@ with open(c_csv, newline="") as csvfile:
     lines.append("The average monthly Profit / Loss is $" + str("%.2f" % AvgProfitLoss))
     print("The average monthly Profit / Loss is $", "%.2f" % AvgProfitLoss)
     
-    lines.append("The Max Profit is $" + str(MaxProfit))
-    print("The Max Profit is $" + str(MaxProfit))
+    lines.append("The Max Profit is $" + str(MaxProfit) + " " + MaxDate)
+    print("The Max Profit is $" + str(MaxProfit)+ " " + MaxDate)
     
-    lines.append("The Min Profit is $" + str(MaxProfit))
-    print("The Min Profit is $" + str(MaxProfit))
+    lines.append("The Min Profit is $" + str(MinLoss)+ " " + MinDate)
+    print("The Min Profit is $" + str(MinLoss)+ " " + MinDate)
     
 
 with open('solution_data.txt', mode='wt', encoding='utf-8') as myfile:

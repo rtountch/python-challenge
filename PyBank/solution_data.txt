@@ -1,5 +1,5 @@
 There are a total of 86months in this data set
 The total Profit / Loss over the period is $38382578
 The average monthly Profit / Loss is $446309.05
-The Max Profit is $1170593
-The Min Profit is $1170593
+The Max Profit is $1170593 Feb-2012
+The Min Profit is $-1196225 Sep-2013
